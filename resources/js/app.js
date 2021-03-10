@@ -13,4 +13,4 @@ require("./bootstrap");
  */
 require("./components/Register");
 require("./components/Login");
-require("./user");
+require("./components/Search");
