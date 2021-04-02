@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaArrowDown } from "react-icons/fa";
 import {
     Container,
     Col,
@@ -35,16 +35,22 @@ class SearchForm extends Component {
         this.setState({
             [name]: value,
         });
-        console.log(value);
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const code = this.state.codeInput;
-        const desc = this.state.descInput;
 
-        console.log(code);
-        console.log(desc);
+        axios
+            .post("/search", {
+                codeInputPost: this.state.codeInput,
+                descInputPost: this.state.descInput,
+            })
+            .then(function (response) {
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
         this.setState({
             codeInput: "",
@@ -56,27 +62,30 @@ class SearchForm extends Component {
         const { codeInput, descInput } = this.state;
         return (
             <Container className="formcontainer">
-                <h2>Search Tool</h2>
+                <h2>
+                    Pay Less for Healthcare Services! Start Here <FaArrowDown />
+                </h2>
                 <Form className="form" onSubmit={(e) => this.handleSubmit(e)}>
                     <Col>
                         <FormGroup>
-                            <Label>Search by Codes</Label>
                             <Input
                                 type="text"
                                 name="codeInput"
                                 id="codeInput"
+                                placeholder="Search by insurance codes.  Ex: 1006455"
                                 value={codeInput}
                                 onChange={(e) => {
                                     this.handleChange(e);
                                 }}
                             />
                         </FormGroup>
+                        <h2>Or...</h2>
                         <FormGroup>
-                            <Label>Search by Diagnosis/Description</Label>
                             <Input
                                 type="text"
                                 name="descInput"
                                 id="descInput"
+                                placeholder="Search by procedure description"
                                 value={descInput}
                                 onChange={(e) => {
                                     this.handleChange(e);
@@ -85,7 +94,7 @@ class SearchForm extends Component {
                         </FormGroup>
                     </Col>
                     <Button>
-                        Submit <FaSearch />
+                        Search <FaSearch />
                     </Button>
                 </Form>
             </Container>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('home');
 });
 
 Route::get('/home', 'App\Http\Controllers\Controller@index')->name('home');
@@ -22,3 +22,4 @@ Route::get('/register', 'App\Http\Controllers\Controller@register')->name('regis
 Route::post('/register', 'App\Http\Controllers\PostController@formSubmit');
 Route::get('/login', 'App\Http\Controllers\Controller@login')->name('login');
 Route::post('/login', 'App\Http\Controllers\PostController@formSubmit');
+Route::post('/search', 'App\Http\Controllers\SearchPostController@searchSubmit')->name('search');
