@@ -29,7 +29,7 @@
                   <a class="nav-link" href="{{ route ('home') }}"><i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">About Us</a>
+                  <a class="nav-link" href="{{ route ('adminpanel') }}">Admin Panel</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route ('register') }}"><i class="far fa-clipboard"></i>Register</a>

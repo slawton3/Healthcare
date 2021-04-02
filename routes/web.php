@@ -22,4 +22,5 @@ Route::get('/register', 'App\Http\Controllers\Controller@register')->name('regis
 Route::post('/register', 'App\Http\Controllers\PostController@formSubmit');
 Route::get('/login', 'App\Http\Controllers\Controller@login')->name('login');
 Route::post('/login', 'App\Http\Controllers\PostController@formSubmit');
+Route::get('/adminpanel', 'App\Http\Controllers\AdminPanelView@getHospitals')->name('adminpanel');
 Route::post('/search', 'App\Http\Controllers\SearchPostController@searchSubmit')->name('search');

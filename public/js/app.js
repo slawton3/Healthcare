@@ -2591,8 +2591,6 @@ var SearchForm = /*#__PURE__*/function (_Component) {
       var value = e.target.value;
 
       _this.setState(_defineProperty({}, name, value));
-
-      console.log(value);
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
